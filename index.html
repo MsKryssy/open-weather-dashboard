@@ -6,53 +6,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Weather Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets /css/#style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="assets /css/#style.css">
 </head>
 
 <body>
-    <header class="p-3 mb-2 bg-secondary text-white header">
-        <h1>The Weather Dashboard</h1>
-    </header>
-    <main>
-    <!--the search bar and search history will be placed here-->
-        <section class="search-panel">
-            <div class="search-bar">
-                <h3>City Search:</h3>
-                <form>
-                    <div class="form-row align-items-center">
-                        <div class="col-8 search-field">
-                            <input type="text" class="form-control" id="cityName" placeholder="Enter a City Name" aria-label="City Name" aria-activedescendant="button-addon"></input>
-                            <button class="btn btn-outline-primary" type="button" id="search-button">Search</button>
-                        </div>
-                    </div>
-                </form>
-                <div class="container">
-                <div id="search-History"></div>
+    <header class="justify-content-center bg-primary text-white mx-0 px-1">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12">
+                    <h1 class="display-4 text-center w-100">The Weather Dashboard 🌤️</h1>
                 </div>
             </div>
-            <div class="col-9">
-                <!--the largest weather card will be placed here-->
-                <div class="container firstCard">
-                    <div class="row">
-                        <div class="col">
-                            <h3 id="firstCity">City + Date + Icon</h3>
-                            <p id="firstDate">Date</p>
-                            <img src="#" alt="#" id="firstIcon"></img>
-                            <p id="firstTemp">Temp</p>
-                            <p id="firstWind">Wind</p>
-                            <p id="firstHumid">Humidity</p>
+        </div>
+    </header>
+
+    <main>
+        <!--the search bar and search history will be placed here-->
+        <section class="search-panel">
+            <div class="container">
+                <div class="row">
+                    <div class="col-3 bg-light border-1">
+                        <div class="headerSearch row mx-3"> 
+                            <div class="form-input row ml-3">
+                                <input class="border" type="text" id="searchCity" placeholder="City Name Here"/>
+                                <button type="button" class="btn btn-primary btn-md border-0" id="btn-search">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>    
+                        <div class="city-list-box">
+                            <ul class="list-group" id="city-list"></ul>
+                            <div id="searchHistory"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!--the larger weather card will go here-->
+        <div class="container largeCard">
+            <h2 id="currentWeather">Current Weather</h2>
+            <div class="row large">
+                <div class="col-lg-4">
+                    <h3 id="largeCity"></h3>
+                    <h4 id="largeDate"></h4>
+                    <img src="" alt="" id="largeIcon">
+                    <span id="largeDesc"></span>
+                    <span id="largeTemp"></span>
+                    <span id="largeWind"></span>
+                    <span id="largeHumidity"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container smallCardContainer">
+            <h5 id="fivedays">5-Day Forecast Below</h5>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title" id="day1City"></h6>
+                            <p id="day1Date"></p>
+                            <img src="" alt="" id="day1Icon">
+                        <p id="day1Desc"></p>
+                        <p id="day1Temp"></p>
+                        <p id="day1Wind"></p>
+                        <p id="day1Humidity"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title" id="day2City"></h6>
+                <p id="day2Date"></p>
+                <img src="" alt="" id="day2Icon"></img>
+                <p id="day2Desc"></p>
+                <p id="day2Temp"></p>
+                <p id="day2Wind"></p>
+                <p id="day2Humidity"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title" id="day3City"></h6>
+                <p id="day3Date"></p>
+                <img src="" alt="" id="day3Icon"></img>
+                <p id="day3Desc"></p>
+                <p id="day3Temp"></p>
+                <p id="day3Wind"></p>
+                <p id="day3Humidity"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title" id="day4City"></h6>
+                <p id="day4Date"></p>
+                <img src="" alt="" id="day4Icon"></img>
+                <p id="day4Desc"></p>
+                <p id="day4Temp"></p>
+                <p id="day4Wind"></p>
+                <p id="day4Humidity"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title" id="day5City"></h6>
+                <p id="day5Date"></p>
+                <img src="" alt="" id="day5Icon"></img>
+                <p id="day5Desc"></p>
+                <p id="day5Temp"></p>
+                <p id="day5Wind"></p>
+                <p id="day5Humidity"></p>
+            </div>
+        </div>
+    </div>
     </main>
-
-
-
-<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="./assets /js/#script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c2ec332b2d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="assets /css/#style.css"></script>
 </body>
+
 </html>

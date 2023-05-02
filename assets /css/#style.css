@@ -1,0 +1,44 @@
+* {
+	font-weight: bold;
+}
+[class="col"] {
+	padding: 1rem;
+}
+body {
+	background-color: aqua;
+	background-size: 1200px;
+}
+.searchButton:hover {
+	cursor: pointer;
+	background-color: blue
+}
+
+span {
+	padding-left: 2px;
+}
+#fivedays {
+	margin-top: 5px;
+	font-size: 20px;
+}
+h3 {
+	font-weight: bolder;
+}
+h6 {
+	font-size: 16px;
+	font-weight: bolder;
+}
+#currentWeather {
+	margin-bottom: 5px;
+}
+
+button {
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+}
+
+#weather-info {
+	margin-top: 30px;
+}
