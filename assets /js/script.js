@@ -1,3 +1,4 @@
+var apiKey = '6412a076b8f58bed7ba8a0790eba533a';
 localStorage.clear();
 
 function findCity() {
@@ -5,7 +6,7 @@ function findCity() {
   var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=imperial&appid=6412a076b8f58bed7ba8a0790eba533a';
   fetch(apiUrl).then(function (response) {
     response.json().then(function (data) {
-      $('#city-name')[0].textContext = cityName + ' (' + moment().format('MM.DD.YYYY');
+      $('#city-name')[0].textContent = cityName + ' (' + moment().format('MM.DD.YYYY') + ')';
       $('#city-list').append('<button type="button" class="list-group-item city-name">' + cityName);
 
       const lat = data.coord.lat;
@@ -50,8 +51,8 @@ function getCurrentWeather(data) {
 function getFutureWeather(data) {
   for (var i = 0; i < 5; i++) {
     var futureWeather = {
-      date: toUTCString (data, i),
-      icon: 'https://openweathermap.org/img/wn' + data.daily[i + 1].weather[0].icon + "@2x.png",
+      date: moment.unix(data.daily[i + 1].dt).format('MMM D'),
+      icon: 'https://openweathermap.org/img/wn' + data.daily[i + 1].weather[0].icon + '@2x.png',
       temp: data.daily[i + 1].temp.day.toFixed(1),
       humidity: data.daily[i + 1].humidity,
     }
